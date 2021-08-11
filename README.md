@@ -1,5 +1,5 @@
 # The Kinetic Modeling of the Pyruvate cycling Pathways
-The repository contains the codes to reproduce results of the paper *Kinetic Modeling of pancreatic beta-cell metabolism reveals control points in the insulin-regulating pyruvate cycling pathways* . To execute the code will require valid Matlab (>= R2010a) license .   
+The repository contains the codes to reproduce results of the paper *Kinetic modelling of β-cell metabolism reveals control points in the insulin-regulating pyruvate cycling pathways* . To execute the code will require valid Matlab (>= R2010a) license .   
 
 # Setup for the code execution
 Execute the following sequence of commands
