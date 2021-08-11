@@ -1,0 +1,2051 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2" level="2" version="1">
+  <model name="Pyruvate cycle Model">
+    <notes>
+      <html xmlns="http://www.w3.org/1999/xhtml">
+        <body>
+The current model is the complete model of pyruvate cycling incorporating all the shuttles of pyruvate cycling in the 
+glucose stimulated insulin secretion (GSIS). This SBML file is for the stoichiometry analysis.                                                                   
+ </body>
+      </html>
+    </notes>
+    <listOfCompartments>
+      <compartment id="cyto" name="cyto" spatialDimensions="3" size="1" constant="true"/>
+      <compartment id="mito" name="mito" spatialDimensions="3" size="1" outside="cyto" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="glc_c" name="glc_c" compartment="cyto" initialConcentration="1.7677864999999999855e-07" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="F6P_c" name="F6P_c" compartment="cyto" initialConcentration="6.8430521000000000623e-07" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="FBP_c" name="FBP_c" compartment="cyto" initialConcentration="3.1475507000000001745e-10" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="GAP_c" name="GAP_c" compartment="cyto" initialConcentration="1.7286244000000001089e-07" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="DPG_c" name="DPG_c" compartment="cyto" initialConcentration="3.0173804999999999285e-09" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="PEP_c" name="PEP_c" compartment="cyto" initialConcentration="8.4163589000000008398e-06" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="LAC_c" name="LAC_c" compartment="cyto" initialConcentration="3.3606872000000000131e-06" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="PYR_c" name="PYR_c" compartment="cyto" initialConcentration="1.5911611999999999213e-07" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="MAL_c" name="MAL_c" compartment="cyto" initialConcentration="1.4197340000000000006e-10" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="CIT_c" name="CIT_c" compartment="cyto" initialConcentration="9.9749532000000002534e-13" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="ICIT_c" name="ICIT_c" compartment="cyto" initialConcentration="9.4234007000000000143e-13" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="AKG_c" name="AKG_c" compartment="cyto" initialConcentration="7.7212590000000003748e-10" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="OAA_c" name="OAA_c" compartment="cyto" initialConcentration="7.4572915000000006502e-15" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="NADPH_c" name="NADPH_c" compartment="cyto" initialConcentration="1.7941587999999999648e-09" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="PYR_m" name="PYR_m" compartment="mito" initialConcentration="5.5998541999999996977e-08" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="ACO_m" name="ACO_m" compartment="mito" initialConcentration="6.7402026000000003959e-07" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="CIT_m" name="CIT_m" compartment="mito" initialConcentration="3.1072000999999998072e-09" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="ICIT_m" name="ICIT_m" compartment="mito" initialConcentration="5.3069688999999997351e-15" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="AKG_m" name="AKG_m" compartment="mito" initialConcentration="4.5673509999999998546e-08" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="SCOA_m" name="SCOA_m" compartment="mito" initialConcentration="4.3659987999999998021e-08" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="SUC_m" name="SUC_m" compartment="mito" initialConcentration="6.5250927000000000901e-10" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="FUM_m" name="FUM_m" compartment="mito" initialConcentration="5.6398388000000000427e-11" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="MAL_m" name="MAL_m" compartment="mito" initialConcentration="5.5978266999999998203e-11" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="OAA_m" name="OAA_m" compartment="mito" initialConcentration="2.901529200000000131e-06" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="inglc" name="inglc" value="0.003" constant="true"/>
+      <parameter id="Vr" name="Vr" value="20" constant="true"/>
+      <parameter id="NADPtot" name="NADPtot" value="0.0005" constant="true"/>
+      <parameter id="v0_1" name="v0_1" value="2.7271e-006" constant="true"/>
+      <parameter id="v0_2" name="v0_2" value="101.054" constant="true"/>
+      <parameter id="v1_1" name="v1_1" value="0.00013424" constant="true"/>
+      <parameter id="v1_2" name="v1_2" value="0.00030118" constant="true"/>
+      <parameter id="v1_3" name="v1_3" value="1.34" constant="true"/>
+      <parameter id="v2_1" name="v2_1" value="3.16667e-005" constant="true"/>
+      <parameter id="v2_2" name="v2_2" value="0.0089" constant="true"/>
+      <parameter id="v2_3" name="v2_3" value="0.9" constant="true"/>
+      <parameter id="v3_1" name="v3_1" value="7.97833e-005" constant="true"/>
+      <parameter id="v3_2" name="v3_2" value="4e-006" constant="true"/>
+      <parameter id="v4_1" name="v4_1" value="0.001" constant="true"/>
+      <parameter id="v4_2" name="v4_2" value="0.00032" constant="true"/>
+      <parameter id="v4_3" name="v4_3" value="1.5" constant="true"/>
+      <parameter id="v5_1" name="v5_1" value="3.33e-005" constant="true"/>
+      <parameter id="v5_2" name="v5_2" value="8e-006" constant="true"/>
+      <parameter id="v6_1" name="v6_1" value="5.33e-005" constant="true"/>
+      <parameter id="v6_2" name="v6_2" value="0.00015" constant="true"/>
+      <parameter id="v6_3" name="v6_3" value="2.9" constant="true"/>
+      <parameter id="v7_1" name="v7_1" value="29.0969" constant="true"/>
+      <parameter id="v7_eq" name="v7_eq" value="21.121" constant="true"/>
+      <parameter id="v7_2" name="v7_2" value="448491" constant="true"/>
+      <parameter id="v7_3" name="v7_3" value="449.094" constant="true"/>
+      <parameter id="v9_1" name="v9_1" value="3.7674e-008" constant="true"/>
+      <parameter id="v9_2" name="v9_2" value="0.004" constant="true"/>
+      <parameter id="v9_3" name="v9_3" value="49.2637" constant="true"/>
+      <parameter id="v9_4" name="v9_4" value="187.379" constant="true"/>
+      <parameter id="v10_1" name="v10_1" value="32514" constant="true"/>
+      <parameter id="v10_2" name="v10_2" value="84267" constant="true"/>
+      <parameter id="v10_3" name="v10_3" value="0.00013" constant="true"/>
+      <parameter id="v10_4" name="v10_4" value="0.00044" constant="true"/>
+      <parameter id="v10_5" name="v10_5" value="0.00033" constant="true"/>
+      <parameter id="v10_6" name="v10_6" value="4.18e-005" constant="true"/>
+      <parameter id="v12_1" name="v12_1" value="5811.9" constant="true"/>
+      <parameter id="v12_2" name="v12_2" value="6739.9" constant="true"/>
+      <parameter id="v12_3" name="v12_3" value="0.0003" constant="true"/>
+      <parameter id="v12_4" name="v12_4" value="0.0007" constant="true"/>
+      <parameter id="v12_5" name="v12_5" value="0.0014" constant="true"/>
+      <parameter id="v12_6" name="v12_6" value="0.00017" constant="true"/>
+      <parameter id="v13_1" name="v13_1" value="0.8512" constant="true"/>
+      <parameter id="v13_2" name="v13_2" value="0.2721" constant="true"/>
+      <parameter id="v13_3" name="v13_3" value="1388.9" constant="true"/>
+      <parameter id="v13_4" name="v13_4" value="1111.1" constant="true"/>
+      <parameter id="v14_1" name="v14_1" value="1e-006" constant="true"/>
+      <parameter id="v14_2" name="v14_2" value="1e-005" constant="true"/>
+      <parameter id="v15_1" name="v15_1" value="0.8333" constant="true"/>
+      <parameter id="v15_2" name="v15_2" value="0.00035714" constant="true"/>
+      <parameter id="v16_1" name="v16_1" value="0.0036" constant="true"/>
+      <parameter id="v16_2" name="v16_2" value="50000" constant="true"/>
+      <parameter id="v16_3" name="v16_3" value="1111.1" constant="true"/>
+      <parameter id="v16_4" name="v16_4" value="16667" constant="true"/>
+      <parameter id="v17_1" name="v17_1" value="0.0158" constant="true"/>
+      <parameter id="v17_2" name="v17_2" value="0.1104" constant="true"/>
+      <parameter id="v17_3" name="v17_3" value="9090.9" constant="true"/>
+      <parameter id="v17_4" name="v17_4" value="2000" constant="true"/>
+      <parameter id="v18_1" name="v18_1" value="1152100" constant="true"/>
+      <parameter id="v18_2" name="v18_2" value="5482500" constant="true"/>
+      <parameter id="v18_3" name="v18_3" value="23041500000" constant="true"/>
+      <parameter id="v18_4" name="v18_4" value="142857" constant="true"/>
+      <parameter id="v18_5" name="v18_5" value="161290" constant="true"/>
+      <parameter id="v18_6" name="v18_6" value="109649000000" constant="true"/>
+      <parameter id="v18_7" name="v18_7" value="416667" constant="true"/>
+      <parameter id="v18_8" name="v18_8" value="263158" constant="true"/>
+      <parameter id="v19_1" name="v19_1" value="913070" constant="true"/>
+      <parameter id="v19_eq" name="v19_eq" value="1000" constant="true"/>
+      <parameter id="v19_2" name="v19_2" value="0.00012" constant="true"/>
+      <parameter id="v19_3" name="v19_3" value="1.39e-006" constant="true"/>
+      <parameter id="v19_4" name="v19_4" value="0.0048" constant="true"/>
+      <parameter id="v19_5" name="v19_5" value="5.3e-006" constant="true"/>
+      <parameter id="v20_1" name="v20_1" value="1.41667e-007" constant="true"/>
+      <parameter id="v20_2" name="v20_2" value="3.5e-005" constant="true"/>
+      <parameter id="v20_3" name="v20_3" value="2e-005" constant="true"/>
+      <parameter id="v21_1" name="v21_1" value="1.7163e-007" constant="true"/>
+      <parameter id="v21_2" name="v21_2" value="27" constant="true"/>
+      <parameter id="v21_3" name="v21_3" value="1.2944e-005" constant="true"/>
+      <parameter id="v21_4" name="v21_4" value="0.00018413" constant="true"/>
+      <parameter id="v21_5" name="v21_5" value="2.22e-005" constant="true"/>
+      <parameter id="v21_6" name="v21_6" value="1.1333e-006" constant="true"/>
+      <parameter id="v21_7" name="v21_7" value="0.0926" constant="true"/>
+      <parameter id="v21_8" name="v21_8" value="0.48787" constant="true"/>
+      <parameter id="v21_9" name="v21_9" value="0.036228" constant="true"/>
+      <parameter id="v21_10" name="v21_10" value="1.0444" constant="true"/>
+      <parameter id="v22_1" name="v22_1" value="50.85" constant="true"/>
+      <parameter id="v22_2" name="v22_2" value="25000000000" constant="true"/>
+      <parameter id="v22_3" name="v22_3" value="295000" constant="true"/>
+      <parameter id="v22_4" name="v22_4" value="120000" constant="true"/>
+      <parameter id="v23_1" name="v23_1" value="0.0158" constant="true"/>
+      <parameter id="v23_2" name="v23_2" value="0.1104" constant="true"/>
+      <parameter id="v23_3" name="v23_3" value="9090.9" constant="true"/>
+      <parameter id="v23_4" name="v23_4" value="2000" constant="true"/>
+      <parameter id="v24_1" name="v24_1" value="0.11263" constant="true"/>
+      <parameter id="v24_2" name="v24_2" value="82222" constant="true"/>
+      <parameter id="v24_3" name="v24_3" value="2777.8" constant="true"/>
+      <parameter id="v24_4" name="v24_4" value="0.63889" constant="true"/>
+      <parameter id="v24_5" name="v24_5" value="0.21667" constant="true"/>
+      <parameter id="v24_6" name="v24_6" value="1.7778" constant="true"/>
+      <parameter id="v25_1" name="v25_1" value="0.0311" constant="true"/>
+      <parameter id="v25_2" name="v25_2" value="1454600000" constant="true"/>
+      <parameter id="v25_3" name="v25_3" value="1454600000" constant="true"/>
+      <parameter id="v25_4" name="v25_4" value="24691" constant="true"/>
+      <parameter id="v26_1" name="v26_1" value="3.2512e-005" constant="true"/>
+      <parameter id="v26_2" name="v26_2" value="6.4" constant="true"/>
+      <parameter id="v26_3" name="v26_3" value="4.1876" constant="true"/>
+      <parameter id="v26_4" name="v26_4" value="37.5348" constant="true"/>
+      <parameter id="v26_5" name="v26_5" value="1478.2" constant="true"/>
+      <parameter id="v26_6" name="v26_6" value="9509.6" constant="true"/>
+      <parameter id="v26_7" name="v26_7" value="236.711" constant="true"/>
+      <parameter id="v27_1" name="v27_1" value="2.941" constant="true"/>
+      <parameter id="v27_2" name="v27_2" value="11.5344" constant="true"/>
+      <parameter id="v27_3" name="v27_3" value="449.661" constant="true"/>
+      <parameter id="v27_4" name="v27_4" value="199130" constant="true"/>
+      <parameter id="v27_5" name="v27_5" value="179210000" constant="true"/>
+      <parameter id="v28_1" name="v28_1" value="13.9024" constant="true"/>
+      <parameter id="v28_2" name="v28_2" value="13.9024" constant="true"/>
+      <parameter id="v28_3" name="v28_3" value="4000000" constant="true"/>
+      <parameter id="v28_4" name="v28_4" value="880000" constant="true"/>
+      <parameter id="v29_1" name="v29_1" value="0.0016" constant="true"/>
+      <parameter id="v29_2" name="v29_2" value="2.5563e-010" constant="true"/>
+      <parameter id="v29_3" name="v29_3" value="33263" constant="true"/>
+      <parameter id="v29_4" name="v29_4" value="14.0754" constant="true"/>
+      <parameter id="v29_5" name="v29_5" value="2742900" constant="true"/>
+      <parameter id="v30_1" name="v30_1" value="157.813" constant="true"/>
+      <parameter id="v30_eq" name="v30_eq" value="1000" constant="true"/>
+      <parameter id="v30_2" name="v30_2" value="500" constant="true"/>
+      <parameter id="v30_3" name="v30_3" value="227.273" constant="true"/>
+      <parameter id="v15_3" name="v15_3" value="8333.3" constant="true"/>
+      <parameter id="v15_4" name="v15_4" value="5000" constant="true"/>
+      <parameter id="flow" name="flow" value="1.46e-090" constant="true"/>
+      <parameter id="sink" name="sink" value="8.89e-060" constant="true"/>
+      <parameter id="NADP_c" name="NADP_c" value="0" constant="false"/>
+      <parameter id="atpeq" name="atpeq" value="0.003889" constant="false"/>
+      <parameter id="adpeq" name="adpeq" value="0.001334" constant="false"/>
+      <parameter id="ATP" name="ATP" value="7e-3" constant="false"/>
+      <parameter id="ADP" name="ADP" value="0.6e-3" constant="false"/>
+      <parameter id="denomglc" name="denomglc" value="0" constant="false"/>
+      <parameter id="denomlac" name="denomlac" value="0" constant="false"/>
+      <parameter id="denompyrs" name="denompyrs" value="0" constant="false"/>
+      <parameter id="denomcits" name="denomcits" value="0" constant="false"/>
+      <parameter id="denomicits" name="denomicits" value="0" constant="false"/>
+      <parameter id="denomakhs" name="denomakhs" value="0" constant="false"/>
+      <parameter id="denommals" name="denommals" value="0" constant="false"/>
+      <parameter id="denomcitl" name="denomcitl" value="0" constant="false"/>
+      <parameter id="denommdhc" name="denommdhc" value="0" constant="false"/>
+      <parameter id="denomaconc" name="denomaconc" value="0" constant="false"/>
+      <parameter id="denomisodc1" name="denomisodc1" value="0" constant="false"/>
+      <parameter id="denomisodc2" name="denomisodc2" value="0" constant="false"/>
+      <parameter id="denommalicc" name="denommalicc" value="0" constant="false"/>
+      <parameter id="denompc" name="denompc" value="0" constant="false"/>
+      <parameter id="denomacm" name="denomacm" value="0" constant="false"/>
+      <parameter id="denomscm" name="denomscm" value="0" constant="false"/>
+      <parameter id="denomsdh" name="denomsdh" value="0" constant="false"/>
+      <parameter id="denomfum" name="denomfum" value="0" constant="false"/>
+      <parameter id="denommdhm" name="denommdhm" value="0" constant="false"/>
+      <parameter id="denommalicm" name="denommalicm" value="0" constant="false"/>
+    </listOfParameters>
+    <listOfRules>
+      <assignmentRule variable="NADP_c">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <ci> NADPtot </ci>
+            <ci> NADPH_c </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="atpeq">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <apply>
+              <times/>
+              <cn> 0.44444 </cn>
+              <apply>
+                <minus/>
+                <ci> inglc </ci>
+                <cn type="e-notation"> 1 <sep/> -3 </cn>
+              </apply>
+            </apply>
+            <cn type="e-notation"> 3 <sep/> -3 </cn>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="adpeq">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <apply>
+              <times/>
+              <cn> -0.066667 </cn>
+              <apply>
+                <minus/>
+                <ci> inglc </ci>
+                <cn type="e-notation"> 1 <sep/> -3 </cn>
+              </apply>
+            </apply>
+            <cn type="e-notation"> 1.2 <sep/> -3 </cn>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="ATP">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <piecewise>
+  <piece>
+    <ci>atpeq</ci>
+    <apply><lt/><ci>inglc</ci><cn type="e-notation"> 10 <sep/> -3 </cn></apply>
+  </piece>
+  <otherwise>
+    <cn>0.007</cn>
+  </otherwise>
+</piecewise>
+</math>
+      </assignmentRule>
+      <assignmentRule variable="ADP">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <piecewise>
+  <piece>
+    <ci>adpeq</ci>
+    <apply><lt/><ci>inglc</ci><cn type="e-notation"> 10 <sep/> -3 </cn></apply>
+  </piece>
+   <otherwise>
+    <cn>0.0006</cn>
+  </otherwise>
+</piecewise>
+</math>
+      </assignmentRule>
+      <assignmentRule variable="denomglc">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <cn type="integer"> 1 </cn>
+            <apply>
+              <times/>
+              <apply>
+                <plus/>
+                <ci> inglc </ci>
+                <ci> glc_c </ci>
+              </apply>
+              <ci> v0_2 </ci>
+            </apply>
+            <apply>
+              <times/>
+              <apply>
+                <power/>
+                <ci> v0_2 </ci>
+                <cn type="integer"> 2 </cn>
+              </apply>
+              <ci> inglc </ci>
+              <ci> glc_c </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="denomlac">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <cn type="integer"> 1 </cn>
+            <apply>
+              <times/>
+              <ci> v7_2 </ci>
+              <ci> PYR_c </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> v7_3 </ci>
+              <ci> LAC_c </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="denompyrs">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <cn type="integer"> 1 </cn>
+            <apply>
+              <times/>
+              <ci> v9_3 </ci>
+              <ci> PYR_m </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> PYR_c </ci>
+              <ci> v9_4 </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="denomcits">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <cn type="integer"> 1 </cn>
+            <apply>
+              <divide/>
+              <ci> CIT_c </ci>
+              <ci> v10_3 </ci>
+            </apply>
+            <apply>
+              <divide/>
+              <ci> MAL_m </ci>
+              <ci> v10_4 </ci>
+            </apply>
+            <apply>
+              <divide/>
+              <ci> MAL_c </ci>
+              <ci> v10_5 </ci>
+            </apply>
+            <apply>
+              <divide/>
+              <ci> CIT_m </ci>
+              <ci> v10_6 </ci>
+            </apply>
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> CIT_c </ci>
+                <ci> MAL_m </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> v10_3 </ci>
+                <ci> v10_4 </ci>
+              </apply>
+            </apply>
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> MAL_c </ci>
+                <ci> CIT_m </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> v10_5 </ci>
+                <ci> v10_6 </ci>
+              </apply>
+            </apply>
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> MAL_m </ci>
+                <ci> CIT_m </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> v10_4 </ci>
+                <ci> v10_6 </ci>
+              </apply>
+            </apply>
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> CIT_c </ci>
+                <ci> MAL_c </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> v10_3 </ci>
+                <ci> v10_5 </ci>
+              </apply>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="denomicits">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <cn type="integer"> 1 </cn>
+            <apply>
+              <divide/>
+              <ci> ICIT_c </ci>
+              <ci> v10_3 </ci>
+            </apply>
+            <apply>
+              <divide/>
+              <ci> MAL_m </ci>
+              <ci> v10_4 </ci>
+            </apply>
+            <apply>
+              <divide/>
+              <ci> MAL_c </ci>
+              <ci> v10_5 </ci>
+            </apply>
+            <apply>
+              <divide/>
+              <ci> ICIT_m </ci>
+              <ci> v10_6 </ci>
+            </apply>
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> ICIT_c </ci>
+                <ci> MAL_m </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> v10_3 </ci>
+                <ci> v10_4 </ci>
+              </apply>
+            </apply>
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> MAL_c </ci>
+                <ci> ICIT_m </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> v10_5 </ci>
+                <ci> v10_6 </ci>
+              </apply>
+            </apply>
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> MAL_m </ci>
+                <ci> ICIT_m </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> v10_4 </ci>
+                <ci> v10_6 </ci>
+              </apply>
+            </apply>
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> ICIT_c </ci>
+                <ci> MAL_c </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> v10_3 </ci>
+                <ci> v10_5 </ci>
+              </apply>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="denomakhs">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <cn type="integer"> 1 </cn>
+            <apply>
+              <divide/>
+              <ci> AKG_m </ci>
+              <ci> v12_3 </ci>
+            </apply>
+            <apply>
+              <divide/>
+              <ci> MAL_c </ci>
+              <ci> v12_4 </ci>
+            </apply>
+            <apply>
+              <divide/>
+              <ci> MAL_m </ci>
+              <ci> v12_5 </ci>
+            </apply>
+            <apply>
+              <divide/>
+              <ci> AKG_c </ci>
+              <ci> v12_6 </ci>
+            </apply>
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> AKG_m </ci>
+                <ci> MAL_c </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> v12_3 </ci>
+                <ci> v12_4 </ci>
+              </apply>
+            </apply>
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> MAL_m </ci>
+                <ci> AKG_c </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> v12_5 </ci>
+                <ci> v12_6 </ci>
+              </apply>
+            </apply>
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> MAL_c </ci>
+                <ci> AKG_c </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> v12_4 </ci>
+                <ci> v12_6 </ci>
+              </apply>
+            </apply>
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> AKG_m </ci>
+                <ci> MAL_m </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> v12_3 </ci>
+                <ci> v12_5 </ci>
+              </apply>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="denommals">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <cn type="integer"> 1 </cn>
+            <apply>
+              <times/>
+              <ci> v13_3 </ci>
+              <ci> MAL_m </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> MAL_c </ci>
+              <ci> v13_4 </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="denomcitl">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <cn type="integer"> 1 </cn>
+            <apply>
+              <times/>
+              <ci> v15_3 </ci>
+              <ci> CIT_c </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> v15_4 </ci>
+              <ci> OAA_c </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="denommdhc">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <cn type="integer"> 1 </cn>
+            <apply>
+              <times/>
+              <ci> v16_3 </ci>
+              <ci> MAL_c </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> v16_4 </ci>
+              <ci> OAA_c </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="denomaconc">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <apply>
+              <times/>
+              <ci> v17_3 </ci>
+              <ci> ICIT_c </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> v17_4 </ci>
+              <ci> CIT_c </ci>
+            </apply>
+            <cn type="integer"> 1 </cn>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="denomisodc1">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <apply>
+              <times/>
+              <ci> v18_3 </ci>
+              <ci> ICIT_c </ci>
+              <ci> NADP_c </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> v18_4 </ci>
+              <ci> NADP_c </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> v18_5 </ci>
+              <ci> ICIT_c </ci>
+            </apply>
+            <cn type="integer"> 1 </cn>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="denomisodc2">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <apply>
+              <times/>
+              <ci> v18_6 </ci>
+              <ci> AKG_c </ci>
+              <ci> NADPH_c </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> v18_7 </ci>
+              <ci> NADPH_c </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> v18_8 </ci>
+              <ci> AKG_c </ci>
+            </apply>
+            <cn type="integer"> 1 </cn>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="denommalicc">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <cn type="integer"> 1 </cn>
+            <apply>
+              <divide/>
+              <ci> MAL_c </ci>
+              <ci> v19_2 </ci>
+            </apply>
+            <apply>
+              <divide/>
+              <ci> NADP_c </ci>
+              <ci> v19_3 </ci>
+            </apply>
+            <apply>
+              <divide/>
+              <ci> PYR_c </ci>
+              <ci> v19_4 </ci>
+            </apply>
+            <apply>
+              <divide/>
+              <ci> NADPH_c </ci>
+              <ci> v19_5 </ci>
+            </apply>
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> MAL_c </ci>
+                <ci> NADP_c </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> v19_2 </ci>
+                <ci> v19_3 </ci>
+              </apply>
+            </apply>
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> PYR_c </ci>
+                <ci> NADPH_c </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> v19_4 </ci>
+                <ci> v19_5 </ci>
+              </apply>
+            </apply>
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> MAL_c </ci>
+                <ci> NADPH_c </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> v19_2 </ci>
+                <ci> v19_5 </ci>
+              </apply>
+            </apply>
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> PYR_c </ci>
+                <ci> NADP_c </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> v19_4 </ci>
+                <ci> v19_3 </ci>
+              </apply>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="denompc">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <apply>
+              <times/>
+              <ci> v21_3 </ci>
+              <ci> PYR_m </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> v21_4 </ci>
+              <ci> OAA_m </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> v21_5 </ci>
+              <ci> ATP </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> v21_6 </ci>
+              <ci> ADP </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> v21_7 </ci>
+              <ci> ATP </ci>
+              <ci> PYR_m </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> v21_8 </ci>
+              <ci> ATP </ci>
+              <ci> OAA_m </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> v21_9 </ci>
+              <ci> ADP </ci>
+              <ci> PYR_m </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> v21_10 </ci>
+              <ci> ADP </ci>
+              <ci> OAA_m </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="denomacm">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <apply>
+              <times/>
+              <ci> v23_3 </ci>
+              <ci> ICIT_m </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> v23_4 </ci>
+              <ci> CIT_m </ci>
+            </apply>
+            <cn type="integer"> 1 </cn>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="denomscm">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <cn type="integer"> 1 </cn>
+            <apply>
+              <times/>
+              <ci> v26_4 </ci>
+              <ci> SCOA_m </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> v26_5 </ci>
+              <ci> SUC_m </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> v26_6 </ci>
+              <ci> SUC_m </ci>
+              <ci> SUC_m </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> v26_7 </ci>
+              <ci> SCOA_m </ci>
+              <ci> SUC_m </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="denomsdh">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <cn type="integer"> 1 </cn>
+            <apply>
+              <times/>
+              <ci> v27_3 </ci>
+              <ci> SUC_m </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> v27_4 </ci>
+              <ci> FUM_m </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> v27_5 </ci>
+              <ci> SUC_m </ci>
+              <ci> FUM_m </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="denomfum">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <apply>
+              <times/>
+              <ci> v28_3 </ci>
+              <ci> MAL_m </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> v28_4 </ci>
+              <ci> FUM_m </ci>
+            </apply>
+            <cn type="integer"> 1 </cn>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="denommdhm">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <cn type="integer"> 1 </cn>
+            <apply>
+              <times/>
+              <ci> MAL_m </ci>
+              <ci> v29_3 </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> v29_4 </ci>
+              <ci> OAA_m </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> v29_5 </ci>
+              <ci> MAL_m </ci>
+              <ci> OAA_m </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="denommalicm">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <cn type="integer"> 1 </cn>
+            <apply>
+              <times/>
+              <ci> v30_2 </ci>
+              <ci> MAL_m </ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci> v30_3 </ci>
+              <ci> PYR_m </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+    </listOfRules>
+    <listOfReactions>
+      <reaction id="J0entry_c" name="J0entry_c" reversible="true">
+        <listOfProducts>
+          <speciesReference species="glc_c" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> v0_1 </ci>
+                  <ci> inglc </ci>
+                </apply>
+                <ci> denomglc </ci>
+              </apply>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> v0_1 </ci>
+                  <ci> glc_c </ci>
+                </apply>
+                <ci> denomglc </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="J1gk_c" name="J1gk_c" reversible="false">
+        <listOfReactants>
+          <speciesReference species="glc_c" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="F6P_c" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> v1_1 </ci>
+                <apply>
+                  <power/>
+                  <ci> glc_c </ci>
+                  <ci> v1_3 </ci>
+                </apply>
+              </apply>
+              <apply>
+                <plus/>
+                <apply>
+                  <power/>
+                  <ci> v1_2 </ci>
+                  <ci> v1_3 </ci>
+                </apply>
+                <apply>
+                  <power/>
+                  <ci> glc_c </ci>
+                  <ci> v1_3 </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="J2pfk_c" name="J2pfk_c" reversible="false">
+        <listOfReactants>
+          <speciesReference species="F6P_c" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="FBP_c" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> v2_1 </ci>
+                <apply>
+                  <power/>
+                  <ci> F6P_c </ci>
+                  <ci> v2_3 </ci>
+                </apply>
+              </apply>
+              <apply>
+                <plus/>
+                <apply>
+                  <power/>
+                  <ci> v2_2 </ci>
+                  <ci> v2_3 </ci>
+                </apply>
+                <apply>
+                  <power/>
+                  <ci> F6P_c </ci>
+                  <ci> v2_3 </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="J3fba_c" name="J3fba_c" reversible="false">
+        <listOfReactants>
+          <speciesReference species="FBP_c" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="GAP_c" stoichiometry="2"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> v3_1 </ci>
+                <ci> FBP_c </ci>
+              </apply>
+              <apply>
+                <plus/>
+                <ci> v3_2 </ci>
+                <ci> FBP_c </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="J4gapd_c" name="J4gapd_c" reversible="false">
+        <listOfReactants>
+          <speciesReference species="GAP_c" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="DPG_c" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> v4_1 </ci>
+                <apply>
+                  <power/>
+                  <ci> GAP_c </ci>
+                  <ci> v4_3 </ci>
+                </apply>
+              </apply>
+              <apply>
+                <plus/>
+                <apply>
+                  <power/>
+                  <ci> v4_2 </ci>
+                  <ci> v4_3 </ci>
+                </apply>
+                <apply>
+                  <power/>
+                  <ci> GAP_c </ci>
+                  <ci> v4_3 </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="J5pgp_c" name="J5pgp_c" reversible="false">
+        <listOfReactants>
+          <speciesReference species="DPG_c" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="PEP_c" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> v5_1 </ci>
+                <ci> DPG_c </ci>
+              </apply>
+              <apply>
+                <plus/>
+                <ci> v5_2 </ci>
+                <ci> DPG_c </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="J6pk_c" name="J6pk_c" reversible="false">
+        <listOfReactants>
+          <speciesReference species="PEP_c" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="PYR_c" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> v6_1 </ci>
+                <apply>
+                  <power/>
+                  <ci> PEP_c </ci>
+                  <ci> v6_3 </ci>
+                </apply>
+              </apply>
+              <apply>
+                <plus/>
+                <apply>
+                  <power/>
+                  <ci> v6_2 </ci>
+                  <ci> v6_3 </ci>
+                </apply>
+                <apply>
+                  <power/>
+                  <ci> PEP_c </ci>
+                  <ci> v6_3 </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="J7ldh_c" name="J7ldh_c" reversible="true">
+        <listOfReactants>
+          <speciesReference species="PYR_c" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="LAC_c" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> v7_1 </ci>
+                  <ci> PYR_c </ci>
+                </apply>
+                <ci> denomlac </ci>
+              </apply>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> v7_1 </ci>
+                  <ci> LAC_c </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> v7_eq </ci>
+                  <ci> denomlac </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="J9pyr_s" name="J9pyr_s" reversible="true">
+        <listOfReactants>
+          <speciesReference species="PYR_m" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="PYR_c" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> v9_1 </ci>
+                  <ci> PYR_m </ci>
+                </apply>
+                <ci> denompyrs </ci>
+              </apply>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> PYR_c </ci>
+                  <ci> v9_2 </ci>
+                </apply>
+                <ci> denompyrs </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="J10cit_s" name="J10cit_s" reversible="true">
+        <listOfReactants>
+          <speciesReference species="CIT_c" stoichiometry="1"/>
+          <speciesReference species="MAL_m" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="MAL_c" stoichiometry="1"/>
+          <speciesReference species="CIT_m" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> CIT_c </ci>
+                  <ci> MAL_m </ci>
+                  <ci> v10_1 </ci>
+                </apply>
+                <ci> denomcits </ci>
+              </apply>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> MAL_c </ci>
+                  <ci> CIT_m </ci>
+                  <ci> v10_2 </ci>
+                </apply>
+                <ci> denomcits </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="J11icit_s" name="J11icit_s" reversible="true">
+        <listOfReactants>
+          <speciesReference species="ICIT_c" stoichiometry="1"/>
+          <speciesReference species="MAL_m" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="MAL_c" stoichiometry="1"/>
+          <speciesReference species="ICIT_m" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> ICIT_c </ci>
+                  <ci> MAL_m </ci>
+                  <ci> v10_1 </ci>
+                </apply>
+                <ci> denomicits </ci>
+              </apply>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> MAL_c </ci>
+                  <ci> ICIT_m </ci>
+                  <ci> v10_2 </ci>
+                </apply>
+                <ci> denomicits </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="J12akhmal_s" name="J12akhmal_s" reversible="true">
+        <listOfReactants>
+          <speciesReference species="MAL_c" stoichiometry="1"/>
+          <speciesReference species="AKG_m" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="AKG_c" stoichiometry="1"/>
+          <speciesReference species="MAL_m" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> AKG_m </ci>
+                  <ci> MAL_c </ci>
+                  <ci> v12_1 </ci>
+                </apply>
+                <ci> denomakhs </ci>
+              </apply>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> MAL_m </ci>
+                  <ci> AKG_c </ci>
+                  <ci> v12_2 </ci>
+                </apply>
+                <ci> denomakhs </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="J13malh_s" name="J13malh_s" reversible="true">
+        <listOfReactants>
+          <speciesReference species="MAL_m" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="MAL_c" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> MAL_m </ci>
+                  <ci> v13_1 </ci>
+                </apply>
+                <ci> denommals </ci>
+              </apply>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> MAL_c </ci>
+                  <ci> v13_2 </ci>
+                </apply>
+                <ci> denommals </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="J14nadph_c" name="J14nadph_c" reversible="false">
+        <listOfReactants>
+          <speciesReference species="NADPH_c" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> v14_1 </ci>
+                <ci> NADPH_c </ci>
+              </apply>
+              <apply>
+                <plus/>
+                <ci> v14_2 </ci>
+                <ci> NADPH_c </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="J15citl_c" name="J15citl_c" reversible="true">
+        <listOfReactants>
+          <speciesReference species="CIT_c" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="OAA_c" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> v15_1 </ci>
+                  <ci> CIT_c </ci>
+                </apply>
+                <ci> denomcitl </ci>
+              </apply>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> v15_2 </ci>
+                  <ci> OAA_c </ci>
+                </apply>
+                <ci> denomcitl </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="J16mdh_c" name="J16mdh_c" reversible="true">
+        <listOfReactants>
+          <speciesReference species="MAL_c" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="OAA_c" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> v16_1 </ci>
+                  <ci> MAL_c </ci>
+                </apply>
+                <ci> denommdhc </ci>
+              </apply>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> OAA_c </ci>
+                  <ci> v16_2 </ci>
+                </apply>
+                <ci> denommdhc </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="J17acon_c" name="J17acon_c" reversible="true">
+        <listOfReactants>
+          <speciesReference species="CIT_c" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="ICIT_c" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> v17_1 </ci>
+                  <ci> CIT_c </ci>
+                </apply>
+                <ci> denomaconc </ci>
+              </apply>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> v17_2 </ci>
+                  <ci> ICIT_c </ci>
+                </apply>
+                <ci> denomaconc </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="J18isod_c" name="J18isod_c" reversible="true">
+        <listOfReactants>
+          <speciesReference species="ICIT_c" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="AKG_c" stoichiometry="1"/>
+          <speciesReference species="NADPH_c" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> v18_1 </ci>
+                  <ci> ICIT_c </ci>
+                  <ci> NADP_c </ci>
+                </apply>
+                <ci> denomisodc1 </ci>
+              </apply>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> v18_2 </ci>
+                  <ci> AKG_c </ci>
+                  <ci> NADPH_c </ci>
+                </apply>
+                <ci> denomisodc2 </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="J19me_c" name="J19me_c" reversible="true">
+        <listOfReactants>
+          <speciesReference species="MAL_c" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="PYR_c" stoichiometry="1"/>
+          <speciesReference species="NADPH_c" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> v19_1 </ci>
+                  <ci> MAL_c </ci>
+                  <ci> NADP_c </ci>
+                </apply>
+                <ci> denommalicc </ci>
+              </apply>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> v19_1 </ci>
+                  <ci> PYR_c </ci>
+                  <ci> NADPH_c </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> v19_eq </ci>
+                  <ci> denommalicc </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="J20pdh_m" name="J20pdh_m" reversible="false">
+        <listOfReactants>
+          <speciesReference species="PYR_m" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="ACO_m" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> v20_1 </ci>
+                <ci> PYR_m </ci>
+              </apply>
+              <apply>
+                <plus/>
+                <apply>
+                  <times/>
+                  <ci> v20_2 </ci>
+                  <apply>
+                    <plus/>
+                    <cn type="integer"> 1 </cn>
+                    <apply>
+                      <divide/>
+                      <ci> ACO_m </ci>
+                      <ci> v20_3 </ci>
+                    </apply>
+                  </apply>
+                </apply>
+                <ci> PYR_m </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="J21pc_m" name="J21pc_m" reversible="true">
+        <listOfReactants>
+          <speciesReference species="OAA_m" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="PYR_m" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> v21_1 </ci>
+                  <ci> ADP </ci>
+                  <ci> OAA_m </ci>
+                </apply>
+                <ci> denompc </ci>
+              </apply>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> v21_2 </ci>
+                  <ci> ATP </ci>
+                  <ci> PYR_m </ci>
+                </apply>
+                <ci> denompc </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="J22cs_m" name="J22cs_m" reversible="false">
+        <listOfReactants>
+          <speciesReference species="ACO_m" stoichiometry="1"/>
+          <speciesReference species="OAA_m" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="CIT_m" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> v22_1 </ci>
+                <ci> ACO_m </ci>
+                <ci> OAA_m </ci>
+              </apply>
+              <apply>
+                <plus/>
+                <apply>
+                  <times/>
+                  <ci> v22_2 </ci>
+                  <ci> ACO_m </ci>
+                  <ci> OAA_m </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> v22_3 </ci>
+                  <ci> OAA_m </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> v22_4 </ci>
+                  <ci> ACO_m </ci>
+                </apply>
+                <cn type="integer"> 1 </cn>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="J23ac_m" name="J23ac_m" reversible="true">
+        <listOfReactants>
+          <speciesReference species="CIT_m" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="ICIT_m" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> v23_1 </ci>
+                  <ci> CIT_m </ci>
+                </apply>
+                <ci> denomacm </ci>
+              </apply>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> v23_2 </ci>
+                  <ci> ICIT_m </ci>
+                </apply>
+                <ci> denomacm </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="J24icd_m" name="J24icd_m" reversible="false">
+        <listOfReactants>
+          <speciesReference species="ICIT_m" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="AKG_m" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> v24_1 </ci>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <times/>
+                    <ci> ICIT_m </ci>
+                    <ci> ICIT_m </ci>
+                  </apply>
+                  <apply>
+                    <times/>
+                    <ci> v24_2 </ci>
+                    <ci> ICIT_m </ci>
+                  </apply>
+                </apply>
+              </apply>
+              <apply>
+                <plus/>
+                <apply>
+                  <times/>
+                  <ci> v24_3 </ci>
+                  <ci> ICIT_m </ci>
+                  <ci> ICIT_m </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> v24_4 </ci>
+                  <ci> ICIT_m </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> v24_5 </ci>
+                  <ci> ADP </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> v24_6 </ci>
+                  <ci> ADP </ci>
+                  <ci> ICIT_m </ci>
+                </apply>
+                <cn type="integer"> 1 </cn>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="J25akg_m" name="J25akg_m" reversible="false">
+        <listOfReactants>
+          <speciesReference species="AKG_m" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="SCOA_m" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> v25_1 </ci>
+                <ci> AKG_m </ci>
+              </apply>
+              <apply>
+                <plus/>
+                <cn type="integer"> 1 </cn>
+                <apply>
+                  <times/>
+                  <ci> v25_2 </ci>
+                  <ci> AKG_m </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> v25_3 </ci>
+                  <ci> SCOA_m </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> v25_4 </ci>
+                  <ci> AKG_m </ci>
+                  <ci> SCOA_m </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="J26sco_m" name="J26sco_m" reversible="true">
+        <listOfReactants>
+          <speciesReference species="SCOA_m" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="SUC_m" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> v26_1 </ci>
+                  <ci> v26_3 </ci>
+                  <ci> SCOA_m </ci>
+                </apply>
+                <ci> denomscm </ci>
+              </apply>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> v26_1 </ci>
+                  <ci> SUC_m </ci>
+                  <apply>
+                    <plus/>
+                    <apply>
+                      <times/>
+                      <ci> v26_2 </ci>
+                      <ci> SUC_m </ci>
+                    </apply>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                </apply>
+                <ci> denomscm </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="J27sdh_m" name="J27sdh_m" reversible="true">
+        <listOfReactants>
+          <speciesReference species="SUC_m" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="FUM_m" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> v27_1 </ci>
+                  <ci> SUC_m </ci>
+                </apply>
+                <ci> denomsdh </ci>
+              </apply>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> FUM_m </ci>
+                  <ci> v27_2 </ci>
+                </apply>
+                <ci> denomsdh </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="J28fum_m" name="J28fum_m" reversible="true">
+        <listOfReactants>
+          <speciesReference species="FUM_m" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="MAL_m" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> v28_1 </ci>
+                  <ci> FUM_m </ci>
+                </apply>
+                <ci> denomfum </ci>
+              </apply>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> v28_2 </ci>
+                  <ci> MAL_m </ci>
+                </apply>
+                <ci> denomfum </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="J29mdh_m" name="J29mdh_m" reversible="true">
+        <listOfReactants>
+          <speciesReference species="MAL_m" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="OAA_m" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> v29_1 </ci>
+                  <ci> MAL_m </ci>
+                </apply>
+                <ci> denommdhm </ci>
+              </apply>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> v29_2 </ci>
+                  <ci> OAA_m </ci>
+                </apply>
+                <ci> denommdhm </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="J30me_m" name="J30me_m" reversible="true">
+        <listOfReactants>
+          <speciesReference species="MAL_m" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="PYR_m" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> v30_1 </ci>
+                  <ci> MAL_m </ci>
+                </apply>
+                <ci> denommalicm </ci>
+              </apply>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> v30_1 </ci>
+                  <ci> PYR_m </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> v30_eq </ci>
+                  <ci> denommalicm </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="akgflow" name="akgflow" reversible="false">
+        <listOfReactants>
+          <speciesReference species="AKG_c" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> AKG_c </ci>
+              <ci> flow </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="lacsink" name="lacsink" reversible="false">
+        <listOfReactants>
+          <speciesReference species="LAC_c" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> sink </ci>
+              <ci> LAC_c </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>
